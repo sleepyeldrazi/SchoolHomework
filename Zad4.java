@@ -31,7 +31,7 @@ public class Zad4 extends Canvas implements MouseListener,
 
     public void paint(Graphics g) {
         g.setColor(new Color(0,0,0,0));//pravq nov cvqt s 4ta stoinotst - alpha - koqto e "vidimost"
-        g.drawOval(cX, cY,25,25 );// krag4e
+        g.drawOval(cX, cY,50,50 );// krag4e
         g.setColor(Color.black);//see zad1
         g.drawString("Missed Hits: " + counter, 20, 20);//pravim string koito da izliza gore v lqvo
         g.fillOval(hit.x-3,hit.y-3,6,6); // mqsto na "udar"
