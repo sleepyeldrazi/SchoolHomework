@@ -9,32 +9,35 @@ import java.awt.event.MouseMotionListener;
  */
 public class Zad5 extends Canvas implements MouseListener,
         MouseMotionListener {
-    Color colorSq = Color.blue;
-    Color colorBg = Color.yellow;
-    int x= -30;
+    Color colorSq = Color.blue;//see zad3
+    Color colorBg = Color.yellow;//see zad3
+    int x= -30;//see zad3
     int y= -30;
 
 
 
-    public Zad5() {
+    public Zad5() {//see zad3
         addMouseListener(this);
         addMouseMotionListener(this);
 
     }
 
-    public void paint(Graphics g) {
+    public void paint(Graphics g) {//see zad3
         g.setColor(colorSq);
         setBackground(colorBg);
         g.fillRect(x - 20, y - 20, 40, 40);
 
     }
 
-    public void mousePressed(MouseEvent evt) {
+    public void mousePressed(MouseEvent evt) {//see zad3
         x = evt.getX();
         y = evt.getY();
     }
 
     public void mouseClicked(MouseEvent evt) {
+        //razlikata s 3ta e 4e imame cikal ot 3 a ne 2 cvqta, toest ako e sin obekta stava jalt, ako e jalt red
+        //ako e red sin
+        //blue>yellow>red>blue>yellow>......
         if(colorSq == Color.blue){
             colorSq = Color.yellow;
             colorBg = Color.red;
@@ -59,7 +62,7 @@ public class Zad5 extends Canvas implements MouseListener,
     public void mouseExited(MouseEvent evt) {
     }
 
-    public void mouseDragged(MouseEvent evt) {
+    public void mouseDragged(MouseEvent evt) {//see zad3
         x = evt.getX();
         y = evt.getY();
         repaint();
@@ -68,8 +71,7 @@ public class Zad5 extends Canvas implements MouseListener,
     public void mouseMoved(MouseEvent evt) {
     }
 
-    //public void update(Graphics g){paint(g);}
-    public static void main(String[] args) {
+    public static void main(String[] args) {//see zad3
         JFrame win = new JFrame("Sexy Darko");
         win.setSize(1024, 768);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

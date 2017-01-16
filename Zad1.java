@@ -18,7 +18,7 @@ public class Zad1 extends Canvas implements MouseListener,
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.red); // i like red
+        g.setColor(Color.red); // i like red (izbirame cvqt za obektite)
         g.fillOval(p.x-3,p.y-3,6,6); // pravi "to4kata" kadeto si natisnal kato e s radius 3
         g.drawOval(p.x-r, p.y-r, 2*r, 2*r);
         //4ertae ot p(mishka) - radius  do 2* radiusa t.e. diametar zashtoto trqbva ppc da se vavejda

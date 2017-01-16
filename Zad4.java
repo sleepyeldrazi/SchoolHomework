@@ -9,17 +9,14 @@ import java.awt.event.MouseMotionListener;
  */
 public class Zad4 extends Canvas implements MouseListener,
         MouseMotionListener {
-    Point hit;
-    int x=-100;
+    Point hit;//see zad1
+    int x=-100;//see zad2
     int y= -100;
-    int cX = (int)(Math.random()*999 +25);
-    int cY = (int)(Math.random()*999 +25);
-    int rangeX = x;
-    int rangeY = y;
-    static int counter = 0;
+    int cX = (int)(Math.random()*999 +25);//cX = x na kraga
+    int cY = (int)(Math.random()*999 +25);//cY = y na kraga
+    static int counter = 0; // broi propusnati opiti
 
-//invis circle r50 miss counter, range, hitPoint
-    public Zad4() {
+    public Zad4() {//see zad1
         addMouseListener(this);
         addMouseMotionListener(this);
     }
@@ -27,21 +24,24 @@ public class Zad4 extends Canvas implements MouseListener,
     boolean hitCheck(MouseEvent e){
         if(e.getX() > cX-25 && e.getX() < cX+25 && e.getY() > cY-25 && e.getY() < cY+25) return true;
         return false;
+        // funkciq/method koito proverqva dali mishkata e v granicite na kraga, t.e. x i y na mishkata dali sa
+        // mejdu na4alnite i krainite x i y (kraga ne e 1px a obhvashta mnogo pixeli)
 
     }
 
     public void paint(Graphics g) {
-        g.setColor(new Color(0,0,0,0));
-        g.drawOval(cX, cY,25,25 );
-        g.setColor(Color.black);
-        g.drawString("Missed Hits: " + counter, 20, 20);
-        g.fillOval(hit.x-3,hit.y-3,6,6);
+        g.setColor(new Color(0,0,0,0));//pravq nov cvqt s 4ta stoinotst - alpha - koqto e "vidimost"
+        g.drawOval(cX, cY,25,25 );// krag4e
+        g.setColor(Color.black);//see zad1
+        g.drawString("Missed Hits: " + counter, 20, 20);//pravim string koito da izliza gore v lqvo
+        g.fillOval(hit.x-3,hit.y-3,6,6); // mqsto na "udar"
         g.drawString("Distance to Point: " + (int)hit.distance(cX, cY), hit.x, hit.y - 10);
+        //raztoqnite do centara na kraga #pitagor
     }
 
     public void mousePressed(MouseEvent evt) {
-        hit = evt.getPoint().getLocation();
-        if(!hitCheck(evt)) counter++;
+        hit = evt.getPoint().getLocation();//see zad1
+        if(!hitCheck(evt)) counter++;//ako ne sme v kraga dobavi to4ka kam "missed hits"
         repaint();
 
     }
@@ -66,8 +66,7 @@ public class Zad4 extends Canvas implements MouseListener,
     public void mouseMoved(MouseEvent evt) {
     }
 
-    //public void update(Graphics g){paint(g);}
-    public static void main(String[] args) {
+    public static void main(String[] args) { //see zad1
         JFrame win = new JFrame("Sexy Tso");
         win.setSize(1024, 768);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
