@@ -9,7 +9,10 @@ import java.awt.event.MouseMotionListener;
  */
 public class Zad5 extends Canvas implements MouseListener,
         MouseMotionListener {
-
+    Color colorSq = Color.blue;
+    Color colorBg = Color.yellow;
+    int x= -30;
+    int y= -30;
 
 
 
@@ -20,16 +23,31 @@ public class Zad5 extends Canvas implements MouseListener,
     }
 
     public void paint(Graphics g) {
-
+        g.setColor(colorSq);
+        setBackground(colorBg);
+        g.fillRect(x - 20, y - 20, 40, 40);
 
     }
 
     public void mousePressed(MouseEvent evt) {
-
+        x = evt.getX();
+        y = evt.getY();
     }
 
     public void mouseClicked(MouseEvent evt) {
-
+        if(colorSq == Color.blue){
+            colorSq = Color.yellow;
+            colorBg = Color.red;
+        }
+        else if(colorSq == Color.yellow) {
+            colorSq = Color.red;
+            colorBg = Color.blue;
+        }
+        else {
+            colorSq = Color.blue;
+            colorBg = Color.yellow;
+        }
+        repaint();
     }
 
     public void mouseReleased(MouseEvent evt) {
@@ -42,7 +60,9 @@ public class Zad5 extends Canvas implements MouseListener,
     }
 
     public void mouseDragged(MouseEvent evt) {
-
+        x = evt.getX();
+        y = evt.getY();
+        repaint();
     }
 
     public void mouseMoved(MouseEvent evt) {
