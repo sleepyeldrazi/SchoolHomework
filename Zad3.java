@@ -4,16 +4,19 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 
+import static com.sun.tools.javac.jvm.ByteCodes.swap;
+
 /**
  * Created by Konik on 1/16/17.
  */
 public class Zad3 extends Canvas implements MouseListener,
         MouseMotionListener {
-    int x, y;
-    int r = 0;
-    Point p;
+    Color colorSq = Color.blue;
+    Color colorBg = Color.yellow;
+    int x= -30;
+    int y= -30;
 
-    // boolean clear=false;
+
 
     public Zad3() {
         addMouseListener(this);
@@ -22,22 +25,27 @@ public class Zad3 extends Canvas implements MouseListener,
     }
 
     public void paint(Graphics g) {
-        g.setColor(Color.red);
-        g.fillOval(x - 3, y - 3, 6, 6);
-        g.drawOval(p.x - r, p.y - r, 2 * r, 2 * r);
+        g.setColor(colorSq);
+        setBackground(colorBg);
+        g.fillRect(x - 20, y - 20, 40, 40);
 
     }
 
     public void mousePressed(MouseEvent evt) {
-        p = evt.getPoint();
-        x = p.x;
-        y = p.y;
-        r = 0;
-        repaint();
-
+    x = evt.getX();
+    y = evt.getY();
     }
 
     public void mouseClicked(MouseEvent evt) {
+        if(colorSq == Color.blue){
+        colorSq = Color.yellow;
+        colorBg = Color.blue;
+        }
+        else {
+            colorSq = Color.blue;
+            colorBg = Color.yellow;
+        }
+        repaint();
     }
 
     public void mouseReleased(MouseEvent evt) {
@@ -50,9 +58,8 @@ public class Zad3 extends Canvas implements MouseListener,
     }
 
     public void mouseDragged(MouseEvent evt) {
-        r = (int) Math.round(evt.getPoint().distance(p));
-        repaint();
-
+        x = evt.getX();
+        y = evt.getY();
         repaint();
     }
 
@@ -61,10 +68,10 @@ public class Zad3 extends Canvas implements MouseListener,
 
     //public void update(Graphics g){paint(g);}
     public static void main(String[] args) {
-        JFrame win = new JFrame("Sexy Gabi");
+        JFrame win = new JFrame("Sexy Sky");
         win.setSize(1024, 768);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        win.add(new Zad1());
+        win.add(new Zad3());
         win.setVisible(true);
     }
 }

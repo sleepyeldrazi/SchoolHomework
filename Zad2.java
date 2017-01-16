@@ -12,7 +12,6 @@ public class Zad2 extends Canvas implements MouseListener,
     int x = -100, y = -100;
     int xOld, yOld;
 
-    // boolean clear=false;
 
     public Zad2() {
         addMouseListener(this);
@@ -37,12 +36,15 @@ public class Zad2 extends Canvas implements MouseListener,
     }
 
     public void mouseReleased(MouseEvent evt) {
+
     }
 
     public void mouseEntered(MouseEvent evt) {
+
     }
 
     public void mouseExited(MouseEvent evt) {
+
     }
 
     public void mouseDragged(MouseEvent evt) {
@@ -57,12 +59,14 @@ public class Zad2 extends Canvas implements MouseListener,
     public void mouseMoved(MouseEvent evt) {
     }
 
-    public void update(Graphics g){paint(g);}
+    public void update(Graphics g){
+        paint(g);
+    }
     public static void main(String[] args) {
-        JFrame win = new JFrame("Sexy Gabi");
+        JFrame win = new JFrame("Sexy Roni");
         win.setSize(1024, 768);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        win.add(new Zad1());
+        win.add(new Zad2());
         win.setVisible(true);
     }
 }
