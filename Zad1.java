@@ -26,7 +26,7 @@ public class Zad1 extends Canvas implements MouseListener,
         //poneje mishkata vinagi e na r raztoqnie ot centara zatova se vadi r ot x i y na mishkata
     }
 
-    public void mousePressed(MouseEvent evt) {
+    public void mousePressed(MouseEvent evt) { // evt darji vsi4ko info za input na mishkata, ot nego vzimash position
        p= evt.getPoint(); // p= lokaciqta na mishkata
        r=0; // na4alen radius
        repaint(); // risuvame

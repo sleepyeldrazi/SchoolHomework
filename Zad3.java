@@ -9,37 +9,37 @@ import java.awt.event.MouseMotionListener;
  */
 public class Zad3 extends Canvas implements MouseListener,
         MouseMotionListener {
-    Color colorSq = Color.blue;
-    Color colorBg = Color.yellow;
-    int x= -30;
+    Color colorSq = Color.blue;//na4alni cvetove ot zada4ata, colorSq= color Square (tova koeto ostava kato nartisnesh)
+    Color colorBg = Color.yellow;//colorBg = color background
+    int x= -30;//see zad2
     int y= -30;
 
 
 
-    public Zad3() {
+    public Zad3() { //see zad1
         addMouseListener(this);
         addMouseMotionListener(this);
 
     }
 
     public void paint(Graphics g) {
-        g.setColor(colorSq);
-        setBackground(colorBg);
-        g.fillRect(x - 20, y - 20, 40, 40);
+        g.setColor(colorSq);// set-vam cvetovete
+        setBackground(colorBg);// note: nqma g. na setBackground
+        g.fillRect(x - 20, y - 20, 40, 40); // kvadrat4eto koeto e na x i y na mishkata
 
     }
 
     public void mousePressed(MouseEvent evt) {
-    x = evt.getX();
+    x = evt.getX();//namira kade si natisnal x i y
     y = evt.getY();
     }
 
-    public void mouseClicked(MouseEvent evt) {
-        if(colorSq == Color.blue){
+    public void mouseClicked(MouseEvent evt) {//pri click (natiskane i puskane barzo bez mestene)
+        if(colorSq == Color.blue){//ako e sin kvadrata, smeni cvetovete
         colorSq = Color.yellow;
         colorBg = Color.blue;
         }
-        else {
+        else {// ako ne e sin (toest sa razmeneni) gi varni po staro mu
             colorSq = Color.blue;
             colorBg = Color.yellow;
         }
@@ -56,7 +56,7 @@ public class Zad3 extends Canvas implements MouseListener,
     }
 
     public void mouseDragged(MouseEvent evt) {
-        x = evt.getX();
+        x = evt.getX();//prenastroiva x i y postoqnno dokato se dviji mishkata
         y = evt.getY();
         repaint();
     }
@@ -64,8 +64,7 @@ public class Zad3 extends Canvas implements MouseListener,
     public void mouseMoved(MouseEvent evt) {
     }
 
-    //public void update(Graphics g){paint(g);}
-    public static void main(String[] args) {
+    public static void main(String[] args) { // see zad1
         JFrame win = new JFrame("Sexy Sky");
         win.setSize(1024, 768);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
