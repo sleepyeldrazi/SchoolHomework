@@ -70,7 +70,7 @@ public class Zad5 extends Canvas implements MouseListener,
 
     //public void update(Graphics g){paint(g);}
     public static void main(String[] args) {
-        JFrame win = new JFrame("Sexy Sky");
+        JFrame win = new JFrame("Sexy Darko");
         win.setSize(1024, 768);
         win.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         win.add(new Zad5());
