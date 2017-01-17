@@ -11,6 +11,7 @@ public class Zad2 extends Canvas implements MouseListener,
         MouseMotionListener {
     int x = -100, y = -100; // nastroivam neshtata da izlqzat izvan frame-a
     int xOld, yOld; // starata lokaciq na x i y (she poqsnq po natatak)
+    boolean clear = false;
 
 
     public Zad2() { // see zad1
@@ -23,7 +24,7 @@ public class Zad2 extends Canvas implements MouseListener,
         g.setColor(Color.red);
         g.drawLine(xOld, yOld, x, y); // ideqta kato cqlo e kogato natisnesh da zapomni kade si i kogato mradnesh da
         //drasne ot tam kadeto si bil do novoto mqsto, i poneje se refreshva vsqka millisecond or sth stava kriva
-
+        if(clear) g.clearRect(0,0, getWidth(), getHeight());
 
     }
 
@@ -42,11 +43,11 @@ public class Zad2 extends Canvas implements MouseListener,
     }
 
     public void mouseEntered(MouseEvent evt) {
-
+        clear = false;
     }
 
     public void mouseExited(MouseEvent evt) {
-
+        clear = true;
     }
 
     public void mouseDragged(MouseEvent evt) {
